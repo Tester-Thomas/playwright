@@ -6,6 +6,6 @@ test("Popup validations", async ({page})=>
     await page.goBack();
     await page.goForward();
     
-    console.log("This is test");
+    console.log("Very good");
 
 });
