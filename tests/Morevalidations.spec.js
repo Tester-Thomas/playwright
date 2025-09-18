@@ -5,7 +5,7 @@ test("Popup validations", async ({page})=>
     await page.goto("https://rahulshettyacademy.com/AutomationPractice/");
     // await page.goBack();
     // await page.goForward();
-    
+
     await expect(page.locator("#displayed-text")).toBeVisible();
     await page.locator("#hide-textbox").click();
     await expect(page.locator("#displayed-text")).toBeHidden();
@@ -14,6 +14,7 @@ test("Popup validations", async ({page})=>
 
     await page.locator("#mousehover").hover();
     await page.locator("a[href='#top']").click();
+    
 
     const framePage = page.frameLocator("#courses-iframe");
     await framePage.locator("a[href*='lifetime']:visible").click();

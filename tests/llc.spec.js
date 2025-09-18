@@ -12,5 +12,8 @@ test('Playwright special locators', async({page})=>
     await page.getByText(" The Form has been submitted successfully!.").isVisible();
     await page.getByRole("link",{name : "Shop"}).click();
     await page.locator("app-card").filter({hasText:'Nokia Edge'}).getByRole("button").click();
+
+
+    
     
 });

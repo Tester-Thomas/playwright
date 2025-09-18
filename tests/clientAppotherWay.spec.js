@@ -1,7 +1,7 @@
 const {test,expect} = require("@playwright/test");
 const {text} = require('stream/consumers');
 
-test('Client app other way', async ({page})=>
+test.only('Client app other way', async ({page})=>
 {
     await page.goto("https://rahulshettyacademy.com/client/#/auth/login");
     await page.getByPlaceholder("email@example.com").fill("thomazz@airpay.technology");
@@ -26,8 +26,6 @@ test('Client app other way', async ({page})=>
     await page.locator("[type='text']").nth(2).fill("Thomas");
     await page.locator("[type='text']").nth(3).fill("rahulshettyacademy");
     await page.getByRole("button",{name:"Apply Coupon"}).click();
-    await page.pause();
-
 
     await page.getByPlaceholder("Select Country").pressSequentially("Ind");
     await page.getByRole("button",{name:"India"}).nth(1).click();
