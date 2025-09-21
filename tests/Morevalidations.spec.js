@@ -7,6 +7,8 @@ test("Popup validations", async ({page})=>
     // await page.goForward();
 
     await expect(page.locator("#displayed-text")).toBeVisible();
+    await page.locator('#displayed-text').screenshot({path: 'D:\SOFTWARE TESTING\AUTOMATION TESTING\PLAYWRIGHT\playwright\Screenshots\sc2.png'});
+    await page.screenshot({path: 'D:\SOFTWARE TESTING\AUTOMATION TESTING\PLAYWRIGHT\playwright\Screenshots\sc1.png'});
     await page.locator("#hide-textbox").click();
     await expect(page.locator("#displayed-text")).toBeHidden();
     page.on('dialog',dialog=>dialog.accept());
