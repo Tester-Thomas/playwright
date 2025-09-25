@@ -1,22 +1,25 @@
-class LoginPage
-{
-  constructor(page) {
-    this.page = page;
-    this.loginBtn = page.locator("#login");
-    this.userName = page.locator("#userEmail");
-    this.password = page.locator("#userPassword");
-  }
+class LoginPage {
+    constructor(page)
+    {
+        this.page = page;  // optional, if you want
+        this.loginbtn = page.locator("(//input[@id='login'])[1]");
+        this.email = page.locator("(//input[@id='userEmail'])[1]");
+        this.pswd = page.locator("(//input[@id='userPassword'])[1]");
+    }
 
-  async goTo() {
-    await this.page.goto("https://rahulshettyacademy.com/client/#/auth/login");
-  }
+    async goTo()
+    {
+        await this.page.goto("https://rahulshettyacademy.com/client/#/auth/login");
+    }
 
-  async validLogin(username, password) {
-    // ✅ Use locators directly, no ()
-    await this.userName.fill(username);
-    await this.password.fill(password);
-    await this.loginBtn.click();
-  }
+    // Method must be inside the class
+    async validLogin(username, password)
+    {
+        await this.email.fill(username);
+        await this.pswd.fill(password);
+        await this.loginbtn.click();
+        await page.waitForLoadState('networkidle');
+    }
 }
 
 module.exports = { LoginPage };
