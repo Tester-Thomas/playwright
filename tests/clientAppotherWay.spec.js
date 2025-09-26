@@ -1,7 +1,7 @@
 const {test,expect} = require("@playwright/test");
 const {text} = require('stream/consumers');
 
-test.only('Client app other way', async ({page})=>
+test('Client app other way', async ({page})=>
 {
     await page.goto("https://rahulshettyacademy.com/client/#/auth/login");
     await page.getByPlaceholder("email@example.com").fill("thomazz@airpay.technology");

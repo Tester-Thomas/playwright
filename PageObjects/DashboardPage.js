@@ -8,22 +8,24 @@ class DashboardPage
         this.cart = page.locator("[routerlink*='cart']");
     }
 
-    async productSearch(productName)
+    async productSearch(itemname)
     {
         const title = await this.productName.allTextContents();
         console.log(title);
         const count = await this.products.count();
+        console.log("total = "+ count);
         
-            for(let i=0; i<count; ++i)
+        for(let i=0; i<count; ++i)
+        {
+            const name = await this.products.nth(i).locator('b').textContent();
+            console.log(name);
+            if (name.trim() === itemname)
             {
-                const name = await this.products.nth(i).locator('b').textContent();
-                if (name.trim() === productName)
-                    {
-                     // await cards.nth(i).getByRole('button', { name: 'Add To Cart' }).click();
-                        await this.products.nth(i).locator('text=Add To Cart').click();
-                        break;
-                    }
+                // await cards.nth(i).getByRole('button', { name: 'Add To Cart' }).click();
+                await this.products.nth(i).locator('text=Add To Cart').click();
+                break;
             }
+        }
     }
 
     async NavigateCart()
@@ -33,4 +35,4 @@ class DashboardPage
     }
 }
 
-module.exports ={DashboardPage};
+module.exports = {DashboardPage};
